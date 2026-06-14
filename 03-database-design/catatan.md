@@ -1,7 +1,7 @@
 # Hari 3: Database Design (ERD, Normalisasi, Data Modeling)
 
-**Tanggal**: 11 Juni 2026  
-**Durasi**: 3 jam
+Tanggal: 11 Juni 2026  
+Durasi: 3 jam
 
 ## 🎯 Tujuan Hari Ini
 - [x] Memahami ERD dan relasi tabel
