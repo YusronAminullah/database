@@ -19,7 +19,7 @@ mysqldump -u root toko_online > backup_toko_online.sql
 
 ```
 
-![Backup Database](https://screenshot/01-export-phpmyadmin.png)
+![Backup Database](screenshot/01-export-phpmyadmin.png)
 
 ## 📌 Restore Database
 
@@ -30,7 +30,7 @@ mysql -u root toko_online < backup_toko_online.sql
 
 ```
 
-![Restore Database](https://screenshot/02-import-phpmyadmin.png)
+![Restore Database](screenshot/02-import-phpmyadmin.png)
 
 ### 📌 Verifikasi Restore
 
@@ -39,7 +39,7 @@ SELECT * FROM pelanggan;
 
 ```
 
-![Verifikasi Restore](https://screenshot/03-hasil-restore.png)
+![Verifikasi Restore](screenshot/03-hasil-restore.png)
 
 ## 📌 Backup Otomatis
 
@@ -56,7 +56,7 @@ mysqldump -u root toko_online > %BACKUP_DIR%\backup_%DATE%.sql
 - Menggunakan Windows Task Scheduler
 - Jadwal: Setiap hari jam 02:00
 
-![Penjadwalan](https://screenshot/04-task-scheduler.png)
+![Penjadwalan](screenshot/04-task-scheduler.png)
 
 ## 📌 Point-in-Time Recovery (PITR)
 

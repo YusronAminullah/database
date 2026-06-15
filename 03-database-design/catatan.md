@@ -62,7 +62,7 @@ SELECT * FROM pemesanan_buruk;
 ``` 
 
 Contoh sebelum 2NF:
-![Sebelum 2NF](https://screenshot/02-sebelum-2nf.png)
+![Sebelum 2NF](screenshot/02-sebelum-2nf.png)
 
 ```SQL
 CREATE TABLE pelanggan_bagus (id INT PRIMARY KEY, nama VARCHAR(100));
@@ -74,12 +74,12 @@ SELECT * FROM pelanggan_bagus;
 ```
 
 Contoh setelah 2NF:
-![Setelah 2NF](https://screenshot/03-sesudah-2nf.png)
+![Setelah 2NF](screenshot/03-sesudah-2nf.png)
 
 ### 3NF (Third Normal Form)
 Eliminasi ketergantungan transitif.
 
-![Setelah 3NF](https://screenshot/04-3nf.png)
+![Setelah 3NF](screenshot/04-3nf.png)
 
 ## 📊 Studi Kasus: Normalisasi Toko Buku
 
@@ -94,11 +94,11 @@ CREATE TABLE pemesanan_buruk (
 
 ```
 
-![Tabel Buruk](https://screenshot/05-tabel-buruk.png)
+![Tabel Buruk](screenshot/05-tabel-buruk.png)
 
 Sesudah Normalisasi (4 tabel)
 
-![Skema Normalisasi](https://screenshot/06-skema-normalisasi.png)
+![Skema Normalisasi](screenshot/06-skema-normalisasi.png)
 
 ```sql
 
@@ -122,12 +122,12 @@ CREATE TABLE detail_pesanan_buku (id INT PRIMARY KEY, pesanan_id INT, buku_id IN
 
 Beberapa Dimension Tables (data deskriptif)
 
-![Star Schema](https://screenshot/07-star-schema.png)
+![Star Schema](screenshot/07-star-schema.png)
 
 ### Snowflake Schema
 Dimension Tables dinormalisasi menjadi sub-dimensions
 
-![Snowflake Schema](https://screenshot/08-snowflake-schema.png)
+![Snowflake Schema](screenshot/08-snowflake-schema.png)
 
 ### Perbandingan Star vs Snowflake
 
