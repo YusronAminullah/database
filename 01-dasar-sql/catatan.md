@@ -1,9 +1,9 @@
-Hari 1: Setup Lab & Dasar SQL
+# Hari 1: Setup Lab & Dasar SQL
 
 Tanggal : 24 Maret 2026  
 Durasi  : 3 jam
 
-Tujuan Hari Ini
+## Tujuan Hari Ini
 - [x] Install Laragon (MySQL di Windows)
 - [x] Membuat database dan tabel
 - [x] Mengisi data contoh
@@ -11,9 +11,10 @@ Tujuan Hari Ini
 - [x] Latihan JOIN (INNER, LEFT)
 - [x] Latihan subquery sederhana
 
-Langkah-langkah
+## Langkah-langkah
 
-1. Setup MySQL dengan Laragon
+### Setup MySQL dengan Laragon
+
 1. Download Laragon dari [laragon.org](https://laragon.org/download/)
 2. Install, lalu jalankan Laragon.
 3. Klik tombol Start All (segitiga hijau). Pastikan MySQL dan Nginx/Apache berjalan.
@@ -21,7 +22,7 @@ Langkah-langkah
    -CLI: Klik kanan pada MySQL → CLI, atau buka Command Prompt dan ketik `mysql -u root -p` (password kosong).
    -phpMyAdmin: Klik Database → phpMyAdmin (buka browser, login dengan user `root`, password kosong).
 
-2. Membuat Database dan Tabel
+### Membuat Database dan Tabel
 
 ```sql
 CREATE DATABASE toko_online;
@@ -60,7 +61,11 @@ CREATE TABLE detail_pesanan (
     FOREIGN KEY (produk_id) REFERENCES produk(id)
 );
 
---3. Mengisi Data
+```
+
+### Mengisi Data
+
+```sql
 
 INSERT INTO pelanggan (nama, email, kota, tanggal_daftar) VALUES
 ('Andi Wijaya', 'andi@email.com', 'Jakarta', '2024-01-10'),
@@ -81,11 +86,16 @@ INSERT INTO detail_pesanan (pesanan_id, produk_id, jumlah, harga_satuan) VALUES
 (1, 2, 1, 150000),
 (2, 3, 1, 300000);
 
---4. Query yang Saya Coba
+```
+
+## Query yang Saya Coba
 
 -- Select dengan Where 
 
+```sql
 SELECT * FROM pelanggan WHERE kota = 'Jakarta';
+
+```
 
 Berikut adalah hasil query `SELECT * FROM pelanggan`:
 
@@ -93,9 +103,13 @@ Berikut adalah hasil query `SELECT * FROM pelanggan`:
 
 --INNER JOIN (2 tabel)
 
+```sql
+
 SELECT p.id, p.tanggal_pesan, pl.nama 
 FROM pesanan p
 INNER JOIN pelanggan pl ON p.pelanggan_id = pl.id;
+
+```
 
 Berikut adalah hasil query `INNER JOIN`:
 
@@ -103,10 +117,13 @@ Berikut adalah hasil query `INNER JOIN`:
 
 --JOIN 3 tabel
 
+```sql
 SELECT dp.pesanan_id, pr.nama_produk, dp.jumlah
 FROM detail_pesanan dp
 INNER JOIN produk pr ON dp.produk_id = pr.id
 INNER JOIN pesanan ps ON dp.pesanan_id = ps.id;
+
+```
 
 Berikut adalah hasil query `INNER JOIN`:
 
@@ -114,10 +131,13 @@ Berikut adalah hasil query `INNER JOIN`:
 
 --LEFT JOIN
 
+```sql
 SELECT pl.nama, COUNT(ps.id) AS jumlah_pesanan
 FROM pelanggan pl
 LEFT JOIN pesanan ps ON pl.id = ps.pelanggan_id
 GROUP BY pl.nama;
+
+```
 
 Berikut adalah hasil query `LEFT JOIN`:
 
@@ -125,26 +145,29 @@ Berikut adalah hasil query `LEFT JOIN`:
 
 --Subquery
 
+```sql
 SELECT * FROM produk 
 WHERE harga > (SELECT AVG(harga) FROM produk);
+
+```
 
 Berikut adalah hasil SUBQUERY :
 
 ![Hasil Subquery](screenshot/05-subquery.png)
 
-/* Progress Checklist
-Install Laragon & MySQL
+## Progress Checklist Install Laragon & MySQL
 
-CREATE DATABASE
-CREATE TABLE dengan PRIMARY KEY dan FOREIGN KEY
-INSERT data
-SELECT dengan WHERE
-INNER JOIN
-LEFT JOIN
-Subquery
-Window functions (hari 2)
-CTE (hari 2)
+- CREATE DATABASE
+- CREATE TABLE dengan PRIMARY KEY dan FOREIGN KEY
+- INSERT data
+- SELECT dengan WHERE
+- INNER JOIN
+- LEFT JOIN
+- Subquery
+- Window functions (hari 2)
+- CTE (hari 2)
 
-Referensi
-MySQL Documentation
-W3Schools SQL Tutorial */
+## Referensi
+
+- MySQL Documentation
+- W3Schools SQL Tutorial */

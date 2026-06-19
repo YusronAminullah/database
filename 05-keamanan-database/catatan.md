@@ -3,7 +3,7 @@
 Tanggal: 15 Juni 2026  
 Durasi: 2 jam
 
-## 🎯 Tujuan Hari Ini
+## Tujuan Hari Ini
 - [x] Membuat user database
 - [x] Memberi dan mencabut hak akses (GRANT/REVOKE)
 - [x] Memahami konsep enkripsi
@@ -11,7 +11,7 @@ Durasi: 2 jam
 
 ---
 
-## 📌 Perintah Dasar User Management
+## Perintah Dasar User Management
 
 | Perintah | Fungsi |
 |----------|--------|
@@ -24,7 +24,7 @@ Durasi: 2 jam
 
 ---
 
-## 📌 Contoh Hak Akses (Privileges)
+## Contoh Hak Akses (Privileges)
 
 | Privilege | Arti |
 |-----------|------|
@@ -38,16 +38,17 @@ Durasi: 2 jam
 
 ---
 
-## 📌 Melihat User yang Sudah Ada
+## Melihat User yang Sudah Ada
+
+-- Lihat semua user MySQL
 
 ```sql
--- Lihat semua user MySQL
 SELECT user, host FROM mysql.user;
 
 ```
 ![Cek User yang SudaH Ada](screenshot/01-user-mysql.png)
 
-## 📌 Membuat User Baru
+## Membuat User Baru
 
 ```sql
 -- Buat user baru dengan password
@@ -60,42 +61,54 @@ SELECT user, host FROM mysql.user WHERE user = 'user_belajar';
 
 ![Membuat User Baru](screenshot/02-create-user.png)
 
-## 📌 Memberi Hak Akses(GRANT)
+## Memberi Hak Akses(GRANT)
 
 ### Memberi Hak Akses Baca Saja (SELECT)
 
-```SQL
 -- Beri hak hanya bisa SELECT di database toko_online
+
+```bash
 GRANT SELECT ON toko_online.* TO 'user_belajar'@'localhost';
 
+```
+
 -- Lihat hak akses user
+
+```bash
 SHOW GRANTS FOR 'user_belajar'@'localhost';
 
 ```
 
 ![Memberi Hak Akses(SELECT)](screenshot/03-grant-select.png)
 
-## 📌 Uji Coba User
+## Uji Coba User
 
 ### User dengan hak SELECT saja
-```sql
+
+```bash
 mysql -u user_belajar -p
+
+```
+
 # Masukkan password: password123
 
 -- Coba lihat data (berhasil, karena punya hak SELECT)
+
+```sql
 USE toko_online;
 SELECT * FROM pelanggan;
 
 -- Coba insert data (akan gagal, karena tidak punya hak INSERT)
+
 INSERT INTO pelanggan (nama, email) VALUES ('User Test', 'test@email.com');
+
 -- Hasil: ERROR 1142: INSERT command denied
 
 ```
+
 ![INSERT ditolak](screenshot/04-insert-ditolak.png)
 
----
-
-## 📌 Enkripsi Sederhana
+## Enkripsi Sederhana
 
 ```sql
 -- Enkripsi data
@@ -108,7 +121,7 @@ SELECT AES_DECRYPT(data_terenkripsi, 'kunci');
 
 ![Enkripsi Sederhana](screenshot/05-enkripsi.png)
 
-## 📌 Audit Log Sederhana
+## Audit Log Sederhana
 
 ```sql
 -- Cek status general log
@@ -126,12 +139,12 @@ SHOW VARIABLES LIKE 'general_log_file';
 
 Offkan setelah latihan
 
-```sql
+```bash
 SET GLOBAL general_log = 'OFF';
 
 ```
 
-## 📌 Best Practice
+## Best Practice
 
 Aturan                                  Penjelasan
 Least Privilege                         Beri hak seminimal mungkin yang dibutuhkan
@@ -140,7 +153,7 @@ Password kuat	                        Minimal 8 karakter, kombinasi huruf+angka+
 Jangan pakai root untuk aplikasi	    Root hanya untuk administrasi
 Hapus user yang tidak digunakan         Kurangi risiko keamanan
 
-## ✅ Progress Hari 5
+## Progress Hari 5
 
 - Membuat user baru
 - GRANT (memberi hak akses)
@@ -149,7 +162,7 @@ Hapus user yang tidak digunakan         Kurangi risiko keamanan
 - Memahami konsep enkripsi
 - Audit log sederhana
 
-## 🔗 Referensi
+## Referensi
 
 - MySQL Access Privilege System
 - MySQL Encryption

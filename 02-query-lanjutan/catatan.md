@@ -3,13 +3,13 @@
 Tanggal: 26 Maret 2026  
 Durasi: 3 jam
 
-## 🎯 Tujuan Hari Ini
+## Tujuan Hari Ini
 - [x] Window Functions (ROW_NUMBER, RANK, LEAD, LAG)
 - [x] CTE sederhana dan rekursif
 - [x] Query Optimization dengan EXPLAIN
 - [x] Membuat indeks untuk mempercepat query
 
-## 📊 Window Functions
+## Window Functions
 
 ### ROW_NUMBER()
 Memberi nomor urut pada setiap baris.
@@ -17,6 +17,7 @@ Memberi nomor urut pada setiap baris.
 ```sql
 SELECT nama, kota, ROW_NUMBER() OVER (ORDER BY tanggal_daftar) AS nomor_urut
 FROM pelanggan;
+
 ```
 ![ROW_NUMBER() sederhana](screenshot/01-row-number.png)
 
@@ -38,6 +39,7 @@ SELECT
     RANK() OVER (ORDER BY harga DESC) AS peringkat_rank,
     DENSE_RANK() OVER (ORDER BY harga DESC) AS peringkat_dense_rank
 FROM produk;
+
 ```
 ![RANK() vs DENSE_RANK()](screenshot/03-rank.png)
 
@@ -53,6 +55,7 @@ SELECT
     LEAD(total, 1, 0) OVER (PARTITION BY pelanggan_id ORDER BY tanggal_pesan) AS total_pesanan_berikutnya
 FROM pesanan
 ORDER BY pelanggan_id, tanggal_pesan;
+
 ```
 ![LEAD() dan LAG()](screenshot/04-lead-lag.png)
 
@@ -65,10 +68,11 @@ SELECT
     total,
     SUM(total) OVER (PARTITION BY pelanggan_id ORDER BY tanggal_pesan) AS running_total
 FROM pesanan;
+
 ```
 ![Running Total](screenshot/05-running-total.png)
 
-### 📊 CTE (Common Table Expression)
+### CTE (Common Table Expression)
 CTE Sederhana
 
 ```sql
@@ -86,6 +90,7 @@ SELECT
     tpp.total_belanja
 FROM pelanggan pl
 LEFT JOIN total_pesanan_per_pelanggan tpp ON pl.id = tpp.pelanggan_id;
+
 ```
 ![CTE sederhana](screenshot/06-cte.png)
 
@@ -136,19 +141,19 @@ Perbedaan Sebelum vs Sesudah Indeks
 rows: berkurang drastis
 type: dari ALL (full scan) menjadi ref (index lookup)
 
-📝 Progress Checklist
+## Progress Checklist
 
-ROW_NUMBER()
-RANK() dan DENSE_RANK()
-LEAD() dan LAG()
-Running Total dengan SUM() OVER()
-CTE sederhana
-CTE rekursif
-EXPLAIN execution plan
-Membuat indeks
-Query Optimization lanjutan (hari berikutnya)
+- ROW_NUMBER()
+- RANK() dan DENSE_RANK()
+- LEAD() dan LAG()
+- Running Total dengan SUM() OVER()
+- CTE sederhana
+- CTE rekursif
+- EXPLAIN execution plan
+- Membuat indeks
+- Query Optimization lanjutan (hari berikutnya)
 
-🔗 Referensi
-MySQL Window Functions
-MySQL CTE
-MySQL Indexing
+## Referensi
+- MySQL Window Functions
+- MySQL CTE
+- MySQL Indexing

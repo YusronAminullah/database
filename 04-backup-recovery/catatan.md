@@ -3,7 +3,7 @@
 Tanggal: 14 Juni 2026  
 Durasi: 2 jam
 
-## 🎯 Tujuan Hari Ini
+## Tujuan Hari Ini
 - [x] Backup database dengan mysqldump
 - [x] Restore database dari backup
 - [x] Backup otomatis terjadwal
@@ -11,7 +11,7 @@ Durasi: 2 jam
 
 ---
 
-## 📌 Backup dengan mysqldump
+## Backup dengan mysqldump
 
 ### Perintah Backup
 ```bash
@@ -21,9 +21,9 @@ mysqldump -u root toko_online > backup_toko_online.sql
 
 ![Backup Database](screenshot/01-export-phpmyadmin.png)
 
-## 📌 Restore Database
+## Restore Database
 
-### 📌 Perintah Restore
+### Perintah Restore
 
 ```bash
 mysql -u root toko_online < backup_toko_online.sql
@@ -32,7 +32,7 @@ mysql -u root toko_online < backup_toko_online.sql
 
 ![Restore Database](screenshot/02-import-phpmyadmin.png)
 
-### 📌 Verifikasi Restore
+### Verifikasi Restore
 
 ```sql
 SELECT * FROM pelanggan;
@@ -41,7 +41,7 @@ SELECT * FROM pelanggan;
 
 ![Verifikasi Restore](screenshot/03-hasil-restore.png)
 
-## 📌 Backup Otomatis
+## Backup Otomatis
 
 ```bash
 @echo off
@@ -51,14 +51,14 @@ mysqldump -u root toko_online > %BACKUP_DIR%\backup_%DATE%.sql
 
 ```
 
-## 📌 Penjadwalan
+## Penjadwalan
 
 - Menggunakan Windows Task Scheduler
 - Jadwal: Setiap hari jam 02:00
 
 ![Penjadwalan](screenshot/04-task-scheduler.png)
 
-## 📌 Point-in-Time Recovery (PITR)
+## Point-in-Time Recovery (PITR)
 
 Konsep: Mengembalikan database ke waktu tertentu sebelum terjadi kesalahan.
 
@@ -69,7 +69,7 @@ Cara:
 - Restore base + replay binary log
 - hingga waktu yang diinginkan
 
-## 📝 Ringkasan yang Saya Pelajari
+## Ringkasan yang Saya Pelajari
 
 Perintah                            Fungsi
 mysqldump -u root db > file.sql     Backup database ke file
@@ -85,7 +85,7 @@ Windows Task Scheduler              Jadwalkan backup otomatis
 - Memahami konsep PITR
 - Praktek PITR (hari berikutnya)
 
-## 🔗 Referensi
+## Referensi
 
 - MySQL Backup and Recovery
 - mysqldump Documentation

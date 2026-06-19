@@ -3,13 +3,13 @@
 Tanggal: 11 Juni 2026  
 Durasi: 3 jam
 
-## 🎯 Tujuan Hari Ini
+## Tujuan Hari Ini
 - [x] Memahami ERD dan relasi tabel
 - [x] Menerapkan Normalisasi (1NF, 2NF, 3NF)
 - [x] Membuat skema database yang efisien
 - [x] Memahami Star Schema dan Snowflake Schema
 
-## 📊 ERD (Entity Relationship Diagram)
+## ERD (Entity Relationship Diagram)
 
 ### Jenis Relasi
 
@@ -22,19 +22,19 @@ Durasi: 3 jam
 ### Contoh Relasi yang Saya Buat
 ![ERD Restoran](screenshot/01-erd.png)
 
-## 📊 Normalisasi
+## Normalisasi
 
 ### 1NF (First Normal Form)
 Setiap kolom harus atomic (tidak boleh berisi array/list).
 
 ```sql
--- ❌ Melanggar 1NF
+-- Melanggar 1NF
 CREATE TABLE pesanan_salah (
     id INT PRIMARY KEY,
     menu_items VARCHAR(500)  -- berisi "Nasi, Teh, Pisang"
 );
 
--- ✅ 1NF
+-- 1NF
 CREATE TABLE pesanan_benar (
     id INT PRIMARY KEY,
     menu_item VARCHAR(100)   -- satu nilai per baris
@@ -81,7 +81,7 @@ Eliminasi ketergantungan transitif.
 
 ![Setelah 3NF](screenshot/04-3nf.png)
 
-## 📊 Studi Kasus: Normalisasi Toko Buku
+## Studi Kasus: Normalisasi Toko Buku
 
 Sebelum Normalisasi (Tabel buruk)
 
@@ -116,7 +116,7 @@ CREATE TABLE detail_pesanan_buku (id INT PRIMARY KEY, pesanan_id INT, buku_id IN
 
 ```
 
-## 📊 Data Modeling Lanjutan
+## Data Modeling Lanjutan
 ### Star Schema
 1 Fact Table (data transaksi)
 
